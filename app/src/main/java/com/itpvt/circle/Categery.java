@@ -25,7 +25,7 @@ public class Categery extends AppCompatActivity  implements BaseSliderView.OnSli
 
     SliderLayout sliderLayout;
     HashMap<String, Integer> HashMapForURL;
-    int[] images = {R.drawable.ban, R.drawable.bann, R.drawable.bannn};
+  //  int[] images = {R.drawable.ban, R.drawable.bann, R.drawable.bannn};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,16 +81,16 @@ public class Categery extends AppCompatActivity  implements BaseSliderView.OnSli
 
             }
         });
-        ImageView bag = (ImageView) findViewById(R.id.bag);
-        bag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(Categery.this, My_Cart.class);
-                startActivity(i);
-
-            }
-        });
+//        ImageView bag = (ImageView) findViewById(R.id.bag);
+//        bag.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent i = new Intent(Categery.this, My_Cart.class);
+//                startActivity(i);
+//
+//            }
+//        });
         ImageView img1= (ImageView) findViewById(R.id.womennnc);
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,9 +132,9 @@ AddImagesUrlOnline();
 
         HashMapForURL = new HashMap<String, Integer>();
 
-        HashMapForURL.put(" ", R.drawable.ban);
-        HashMapForURL.put("  ", R.drawable.bann);
-        HashMapForURL.put("   ", R.drawable.bannn);
+//        HashMapForURL.put(" ", R.drawable.ban);
+//        HashMapForURL.put("  ", R.drawable.bann);
+//        HashMapForURL.put("   ", R.drawable.bannn);
 
         callSlider();
 

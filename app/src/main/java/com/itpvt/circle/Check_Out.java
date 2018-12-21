@@ -73,15 +73,15 @@ public class Check_Out extends AppCompatActivity {
 
         ImageView whatsapp=(ImageView)findViewById(R.id.whatsapp);
 
-        ImageView bag=(ImageView)findViewById(R.id.bag);
-        bag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Check_Out.this,My_Cart.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+//        ImageView bag=(ImageView)findViewById(R.id.bag);
+//        bag.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(Check_Out.this,My_Cart.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
         detail=(LinearLayout)findViewById(R.id.detail);
         place=(LinearLayout)findViewById(R.id.place);
         fname=(EditText)findViewById(R.id.cfname);

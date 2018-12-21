@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
     SliderLayout sliderLayout;
     HashMap<String, Integer> HashMapForURL ;
-    int[] images={  R.drawable.ban, R.drawable.bann, R.drawable.bannn};
+   // int[] images={  R.drawable.ban, R.drawable.bann, R.drawable.bannn};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,16 +75,16 @@ whatsapp();
 
             }
         });
-        ImageView bag= (ImageView) findViewById(R.id.bag);
-        bag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent i= new Intent(MainActivity.this, My_Cart.class);
-                startActivity(i);
-
-            }
-        });
+//        ImageView bag= (ImageView) findViewById(R.id.bag);
+//        bag.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent i= new Intent(MainActivity.this, My_Cart.class);
+//                startActivity(i);
+//
+//            }
+//        });
 
 
 
@@ -146,14 +146,14 @@ whatsapp();
 //        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+//        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+//////////////// hello heloo yaha se kam start krna hai ////////////////
         ImageView img1 = (ImageView) findViewById(R.id.mennn);
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,43 +168,43 @@ whatsapp();
         });
 
 
-        ImageView img2 = (ImageView) findViewById(R.id.womennn);
-        img2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
-                intent.putExtra("id", "5");
-                intent.putExtra("title", "Hello");
+//        ImageView img2 = (ImageView) findViewById(R.id.womennn);
+//        img2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
+//                intent.putExtra("id", "5");
+//                intent.putExtra("title", "Hello");
+//
+//                startActivity(intent);
+//
+//            }
+//        });
 
-                startActivity(intent);
-
-            }
-        });
-
-        ImageView img3 = (ImageView) findViewById(R.id.newinnn);
-        img3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-                intent.putExtra("id", "3");
-                intent.putExtra("title", "Hello");
-
-                startActivity(intent);
-
-            }
-        });
-        ImageView img4 = (ImageView) findViewById(R.id.saleee);
-        img4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-                intent.putExtra("id", "7");
-                intent.putExtra("title", "Hello");
-
-                startActivity(intent);
-
-            }
-        });
+//        ImageView img3 = (ImageView) findViewById(R.id.newinnn);
+//        img3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
+//                intent.putExtra("id", "3");
+//                intent.putExtra("title", "Hello");
+//
+//                startActivity(intent);
+//
+//            }
+//        });
+//        ImageView img4 = (ImageView) findViewById(R.id.saleee);
+//        img4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
+//                intent.putExtra("id", "7");
+//                intent.putExtra("title", "Hello");
+//
+//                startActivity(intent);
+//
+//            }
+//        });
 
       //  GetAllProducts();
         AddImagesUrlOnline();
@@ -314,9 +314,9 @@ finish();
 
         HashMapForURL = new HashMap<String, Integer>();
 
-        HashMapForURL.put(" ", R.drawable.ban);
-        HashMapForURL.put("  ", R.drawable.bann);
-        HashMapForURL.put("   ", R.drawable.bannn);
+//        HashMapForURL.put(" ", R.drawable.ban);
+//        HashMapForURL.put("  ", R.drawable.bann);
+//        HashMapForURL.put("   ", R.drawable.bannn);
 
         callSlider();
 

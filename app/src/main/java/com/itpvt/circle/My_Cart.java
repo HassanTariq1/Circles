@@ -92,15 +92,15 @@ public class My_Cart extends AppCompatActivity {
         recyclerView=(RecyclerView)findViewById(R.id.model_recyclerView);
         all_total=(TextView)findViewById(R.id.g_price);
         chek=(Button)findViewById(R.id.chekout);
-       ImageView bag=(ImageView)findViewById(R.id.bag);
-
-        bag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                startActivity(getIntent());
-            }
-        });
+//       ImageView bag=(ImageView)findViewById(R.id.bag);
+//
+//        bag.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//                startActivity(getIntent());
+//            }
+//        });
 
 
         chek.setOnClickListener(new View.OnClickListener() {
