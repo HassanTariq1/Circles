@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <include
+
+        android:id="@+id/include"
+        layout="@layout/toolbar" />
+
+
+
+
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:layout_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/include">
+
+
+    </com.daimajia.slider.library.SliderLayout>
+    <include
+
+        layout="@layout/toolbarr"
+        android:layout_marginBottom="8dp"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+</android.support.constraint.ConstraintLayout>
