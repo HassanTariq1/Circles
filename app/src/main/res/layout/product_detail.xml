@@ -564,6 +564,7 @@ android:layout_marginTop="7dp"
                     android:background="@drawable/btnclr"
                     android:fontFamily="@font/gotham_book"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:text="ADD TO CART"
                     android:textAlignment="center"
                     android:textColor="#ffff" />
