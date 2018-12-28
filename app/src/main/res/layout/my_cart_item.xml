@@ -13,7 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="2dp"
-
+android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/blkborder"
             android:orientation="horizontal">
 
@@ -149,9 +150,11 @@ android:textColor="#000"
     <Button
         android:id="@+id/remove"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginTop="2dp"
-        android:background="@drawable/btnborder"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/btnclr"
 android:layout_gravity="center"
         android:text="Remove"
         android:textSize="15sp"

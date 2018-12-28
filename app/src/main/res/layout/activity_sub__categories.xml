@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
-    android:background="#f2f2f2"
+    android:background="#fff"
     android:orientation="vertical"
 
     >
@@ -42,7 +42,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="60dp"
-
+android:background="@drawable/tool"
             android:gravity="center"
             android:text="Category"
             android:textAllCaps="true"
@@ -65,27 +65,8 @@
      />
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/whatsapp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        app:backgroundTint="#fff"
-        android:src="@drawable/whatsapp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <include layout="@layout/toolbarr"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/face"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
 
-        app:backgroundTint="#fff"
-        android:clickable="true"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/whatsapp" />
 
 </android.support.constraint.ConstraintLayout>

@@ -84,7 +84,7 @@ public class ProductDetails extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //  ImageView bag=(ImageView)findViewById(R.id.bag);
+        ImageView bag=(ImageView)findViewById(R.id.bag);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -103,14 +103,14 @@ public class ProductDetails extends AppCompatActivity {
             }
         });
 
-//        bag.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(ProductDetails.this,My_Cart.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        bag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ProductDetails.this,My_Cart.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         final Intent intent = getIntent();
@@ -496,7 +496,7 @@ public class ProductDetails extends AppCompatActivity {
                         //s_color.setSelection(adapter.getPosition(myItem));//Optional to set the selected item.
 
 
-                    } else if (atr_id.equals("134")) {
+                    } else if (atr_id.equals("135")) {
                         JSONArray value = attribute1.getJSONArray("values");
                         for (int j = 0; j < value.length(); j++) {
                             JSONObject data = value.getJSONObject(j);
@@ -538,7 +538,7 @@ public class ProductDetails extends AppCompatActivity {
 //                        BUILDSKU();
 
 
-                    } else if (atr_id2.equals("134")) {
+                    } else if (atr_id2.equals("135")) {
                         JSONArray value = attribute2.getJSONArray("values");
                         for (int j = 0; j < value.length(); j++) {
                             JSONObject data = value.getJSONObject(j);

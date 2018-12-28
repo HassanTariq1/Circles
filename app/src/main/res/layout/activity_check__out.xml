@@ -529,7 +529,7 @@ android:textColor="#063249"
                 android:layout_marginLeft="35dp"
                 android:layout_marginRight="35dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/border1"
+                android:background="@drawable/btnclr"
                 android:text="Proceed"
                 android:textColor="#fff" />
 

@@ -21,19 +21,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
-
-import java.util.HashMap;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener,BaseSliderView.OnSliderClickListener {
+    ImageView insta;
 
-    SliderLayout sliderLayout;
-    HashMap<String, Integer> HashMapForURL ;
-   // int[] images={  R.drawable.ban, R.drawable.bann, R.drawable.bannn};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,199 +33,156 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         //Remove notification bar
 
 
-
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         setContentView(R.layout.main_navigation);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        sliderLayout= (SliderLayout) findViewById(R.id.slider);
+//        TextView textView=(TextView)findViewById(R.id.textView4) ;
+        //facebook=(FloatingActionButton) findViewById(R.id.fb);
+        ImageView img1 = (ImageView) findViewById(R.id.neww);
+        ImageView img2 = (ImageView) findViewById(R.id.newww);
+//        insta= (ImageView) findViewById(R.id.insta);
+    //    whatsapp=(FloatingActionButton) findViewById(R.id.whatsapp);
+        //  sliderLayout = (SliderLayout) findViewById(R.id.slider);
 
-        FloatingActionButton whats = (FloatingActionButton) findViewById(R.id.whatsapp);
-        whats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Uri uri  =Uri.parse("smsto:"+"+923161433343");
-//                Intent intent =new Intent(Intent.ACTION_SENDTO,uri);
-//                intent.setPackage("com.whatsapp");
-//                startActivity(intent);
-whatsapp();
-
-            }
-        });
-       // ImageView instaa = (ImageView) findViewById(R.id.insta);
-
-
-        FloatingActionButton face= (FloatingActionButton) findViewById(R.id.face);
-        face.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent facebookIntent = openFacebook(MainActivity.this);
-                startActivity(facebookIntent);
-            //    fb://page/100004757891858
-
-            }
-        });
-//        ImageView bag= (ImageView) findViewById(R.id.bag);
-//        bag.setOnClickListener(new View.OnClickListener() {
+//
+//        insta.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent( Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/madame_ready_to_wear"));
+//                startActivity(i);
+//            }
+//        });
+//
+//        instagram.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //
-//                Intent i= new Intent(MainActivity.this, My_Cart.class);
-//                startActivity(i);
+//                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://madame_ready_to_wear/"));
 //
+//                startActivity(myIntent);
 //            }
 //        });
 
 
 
-
-
-
-
-
-//        ImageView img1 = (ImageView) findViewById(R.id.mennn);
+//        whatsapp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                String smsNumber = "923113668542";
+//
+//                Intent sendIntent = new Intent("android.intent.action.MAIN");
+//                sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+//                sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix
+//                startActivity(sendIntent);
+//
+//
+//            }
+//
+//        });
+//
 //        img1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
-//                intent.putExtra("id", "4");
-//                intent.putExtra("title", "Hello");
-//
-//                startActivity(intent);
-//
-//            }
-//        });
-//
-//
-//        ImageView img2 = (ImageView) findViewById(R.id.womennn);
-//        img2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
-//                intent.putExtra("id", "5");
-//                intent.putExtra("title", "Hello");
-//
-//                startActivity(intent);
-//
-//            }
-//        });
-//
-//        ImageView img3 = (ImageView) findViewById(R.id.newinnn);
-//        img3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
 //                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-//                intent.putExtra("id", "3");
+//                intent.putExtra("id", "34");
 //                intent.putExtra("title", "Hello");
 //
 //                startActivity(intent);
 //
+//
 //            }
 //        });
-//        ImageView img4 = (ImageView) findViewById(R.id.saleee);
-//        img4.setOnClickListener(new View.OnClickListener() {
+        ImageView bag=(ImageView)findViewById(R.id.bag);
+
+        bag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(MainActivity.this,My_Cart.class);
+                startActivity(in);
+            }
+        });
+
+//        facebook.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-//                intent.putExtra("id", "7");
-//                intent.putExtra("title", "Hello");
+//                Intent facebookIntent = openFacebook(MainActivity.this);
+//                startActivity(facebookIntent);
+//            }
+//        });
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://footlib.com/"));
+//                startActivity(myIntent);
+//            }
+//        });
+//
+//        ImageView im2 = (ImageView) findViewById(R.id.img2);
+//        im2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this,Casual.class);
+//
 //
 //                startActivity(intent);
 //
 //            }
 //        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
+//
+//        ImageView im3 = (ImageView) findViewById(R.id.img3);
+//        im3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, Formal.class);
+//
+//                startActivity(intent);
+//
+//            }
+//
+//        });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
-//////////////// hello heloo yaha se kam start krna hai ////////////////
-        ImageView img1 = (ImageView) findViewById(R.id.mennn);
-        img1.setOnClickListener(new View.OnClickListener() {
+
+        img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
-                intent.putExtra("id", "4");
-                intent.putExtra("title", "Hello");
+                 Intent in=new Intent(MainActivity.this,All_Products_Design.class);
+        in.putExtra("id","3");
+        in.putExtra("title","Hello");
+        startActivity(in);
 
-                startActivity(intent);
+            }
 
+        });
+
+        img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in=new Intent(MainActivity.this,All_Products_Design.class);
+                in.putExtra("id","2");
+                in.putExtra("title","Hello");
+                startActivity(in);
             }
         });
 
 
-//        ImageView img2 = (ImageView) findViewById(R.id.womennn);
-//        img2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, Sub_Categories.class);
-//                intent.putExtra("id", "5");
-//                intent.putExtra("title", "Hello");
-//
-//                startActivity(intent);
-//
-//            }
-//        });
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-//        ImageView img3 = (ImageView) findViewById(R.id.newinnn);
-//        img3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-//                intent.putExtra("id", "3");
-//                intent.putExtra("title", "Hello");
-//
-//                startActivity(intent);
-//
-//            }
-//        });
-//        ImageView img4 = (ImageView) findViewById(R.id.saleee);
-//        img4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, All_Products_Design.class);
-//                intent.putExtra("id", "7");
-//                intent.putExtra("title", "Hello");
-//
-//                startActivity(intent);
-//
-//            }
-//        });
-
-      //  GetAllProducts();
-        AddImagesUrlOnline();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void whatsapp() {
-
-        String smsNumber = "923174295010";
-
-        Intent sendIntent = new Intent("android.intent.action.MAIN");
-        sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-        sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix
-        startActivity(sendIntent);
-    }
-
-    public static Intent openFacebook(Context c) {
-        try {
-            c.getPackageManager()
-                    .getPackageInfo("com.facebook.katana", 0);
-            return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("fb://page/100004757891858"));
-        } catch (Exception e){
-
-            return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/rdtex2016/"));
-        }
-
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -256,96 +205,71 @@ whatsapp();
 
         return super.onOptionsItemSelected(item);
     }
-
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item)
+    {
         int id = item.getItemId();
 
         if (id == R.id.Home)
         {
             Intent intent=new Intent(MainActivity.this,MainActivity.class);
-startActivity(intent);
-finish();
+//            intent.putExtra("id","55");
+//            intent.putExtra("title","Categories");
+            startActivity(intent);
 
         } else if (id == R.id.Categories){
 
-            Intent intent = new Intent(MainActivity.this, Categery.class);
-
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+//            intent.putExtra("id", "56");
+//            intent.putExtra("title", "Hello");
 
             startActivity(intent);
-            finish();
+
 
         } else if (id == R.id.Cart) {
 
-           Intent i= new Intent(MainActivity.this, My_Cart.class);
+            Intent i= new Intent(MainActivity.this, My_Cart.class);
             startActivity(i);
-
+            finish();
 
         } else if (id == R.id.Whatsapp)
         {
+            String smsNumber = "923113668542";
 
-
-            whatsapp();
+            Intent sendIntent = new Intent("android.intent.action.MAIN");
+            sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+            sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix
+            startActivity(sendIntent);
 
         } else if (id == R.id.Innovators)
         {
             Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://itpvt.net/"));
             startActivity(myIntent);
-finish();
+
         }else if (id == R.id.web) {
 
-            Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forecast.com.pk/"));
+            Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://footlib.com/"));
             startActivity(myIntent);
-            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    @Override
-    public void onSliderClick(BaseSliderView slider) {
-
-    }
-    private void AddImagesUrlOnline()
-
-    {
-
-        HashMapForURL = new HashMap<String, Integer>();
-
-//        HashMapForURL.put(" ", R.drawable.ban);
-//        HashMapForURL.put("  ", R.drawable.bann);
-//        HashMapForURL.put("   ", R.drawable.bannn);
-
-        callSlider();
-
-    }
-    private void callSlider() {
-
-        for(String name : HashMapForURL.keySet()){
-
-            TextSliderView textSliderView = new TextSliderView(MainActivity.this.getApplicationContext());
-
-            textSliderView
-                    .description(name)
-                    .image(HashMapForURL.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
-
-            textSliderView.bundle(new Bundle());
-
-            textSliderView.getBundle()
-                    .putString("extra",name);
-
-            sliderLayout.addSlider(textSliderView);
-        }
-        sliderLayout.setPresetTransformer(SliderLayout.Transformer.DepthPage);
-        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        sliderLayout.setCustomAnimation(new DescriptionAnimation());
-        sliderLayout.setDuration(8000);
-    }
+//
+//    public static Intent openFacebook(Context context) {
+//
+//        try {
+//            context.getPackageManager()
+//                    .getPackageInfo("com.facebook.katana", 0);
+//            return new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse("fb://page/1192767844126708?referrer=app_link"));
+//        } catch (Exception e) {
+//
+//            return new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse("https://www.facebook.com/footlib/"));
+//        }
+//
+//    }
 
 }
-
-

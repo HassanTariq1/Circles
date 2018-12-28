@@ -8,8 +8,8 @@
 
         <item
             android:id="@+id/Home"
-
-            android:title="Home" />
+android:icon="@drawable/neww"
+            android:title="New Arrival" />
 
 
         <!--<item-->
@@ -19,14 +19,15 @@
 
         <item
             android:id="@+id/Categories"
-
-            android:title="Categories" />
+            android:icon="@drawable/shopp"
+            android:title="Sale" />
 
 
 
     <item
             android:id="@+id/Cart"
             android:title="My Cart"
+        android:icon="@drawable/shop"
         />
 
 
@@ -34,6 +35,7 @@
         <item
             android:id="@+id/web"
             android:title="WebSite"
+            android:icon="@drawable/interrr"
           />
     </group>
 
@@ -45,14 +47,14 @@
 
             <item
                 android:id="@+id/Whatsapp"
-
+android:icon="@drawable/whatsaaap"
                 android:title="Whatsapp" />
 
 
             <item
                 android:id="@+id/Innovators"
 
-
+android:icon="@drawable/logan"
                 android:title="INNOVATORS" />
         </menu>
     </item>

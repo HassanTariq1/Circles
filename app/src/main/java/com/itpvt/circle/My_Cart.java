@@ -62,24 +62,17 @@ public class My_Cart extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(My_Cart.this, MainActivity.class);
-                startActivity(intent);
+
+
+                onBackPressed();
             }
         });
-//        ImageView imgg= (ImageView)findViewById(R.id.home);
-//        imgg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent i = new Intent(My_Cart.this, MainActivity.class);
-//                startActivity(i);
-//
-//            }
-//        });
-//        ImageView whatsapp=(ImageView) findViewById(R.id.whatsapp);
+////        ImageView whatsapp=(ImageView) findViewById(R.id.whatsapp);
 //whatsapp.setOnClickListener(new View.OnClickListener() {
 //    @Override
 //    public void onClick(View v) {
@@ -92,15 +85,15 @@ public class My_Cart extends AppCompatActivity {
         recyclerView=(RecyclerView)findViewById(R.id.model_recyclerView);
         all_total=(TextView)findViewById(R.id.g_price);
         chek=(Button)findViewById(R.id.chekout);
-//       ImageView bag=(ImageView)findViewById(R.id.bag);
-//
-//        bag.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//                startActivity(getIntent());
-//            }
-//        });
+       ImageView bag=(ImageView)findViewById(R.id.bag);
+
+        bag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
 
 
         chek.setOnClickListener(new View.OnClickListener() {
@@ -127,12 +120,10 @@ finish();
         layoutManager=new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-
         SharedPreferences sharedPreferences=getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
         Cart_no= sharedPreferences.getString(Config.SHARED_PREF_CART_NO,null);
-
         if (Cart_no==null){
-            Toast.makeText(My_Cart.this,"there is no cart item", Toast.LENGTH_LONG).show();
+            Toast.makeText(My_Cart.this,"Cart is Empty", Toast.LENGTH_SHORT).show();
             chek.setEnabled(false);
             Intent i= new Intent(My_Cart.this,  MainActivity.class);
             startActivity(i);
@@ -149,7 +140,7 @@ finish();
             public void onResponse(String response) {
                 loading.dismiss();
                 if (response.equals("[]")) {
-                    Toast.makeText(My_Cart.this, "There is no item in the Cart", Toast.LENGTH_LONG).show();
+                    Toast.makeText(My_Cart.this, "Cart is Empty", Toast.LENGTH_SHORT).show();
                     chek.setEnabled(false);
                     Intent i= new Intent(My_Cart.this,  MainActivity.class);
                     startActivity(i);
@@ -211,7 +202,12 @@ finish();
         requestQueue.add(request);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(My_Cart.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 
 }

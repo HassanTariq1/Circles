@@ -84,7 +84,7 @@ public class Recyler_Cart_Item extends RecyclerView.Adapter<Recyler_Cart_Item.My
                 loading.dismiss();
                 if (response.equals("removed")){
                     Toast.makeText(activity,"item removed", Toast.LENGTH_LONG).show();
-                   Intent intent= new Intent(activity, My_Cart.class);
+                   Intent intent= new Intent(activity, MainActivity.class);
                     activity.startActivity(intent);
                 }
             }

@@ -6,7 +6,7 @@
     android:background="#f2f2f2"
 
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="madame.itpvt.com.madame1234.Check_Out"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@ android:textColor="#6b9e3a"
                 android:layout_height="wrap_content"
 android:textSize="18sp"
                 android:layout_marginTop="10dp"
-android:background="@drawable/white_border"
+
                 android:paddingLeft="7dp"
                 android:hint="First name"
                 android:inputType="text"
@@ -69,7 +69,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
 
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"
                     android:inputType="text"
                  />
@@ -83,7 +83,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"                    android:inputType="textEmailAddress"
 
 
@@ -100,7 +100,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"
                     android:inputType="text"
                    />
@@ -115,7 +115,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"                    android:inputType="text"
 
 
@@ -135,7 +135,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"
 
 
@@ -153,7 +153,7 @@ android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:textSize="18sp"
-                    android:background="@drawable/white_border"
+
                     android:paddingLeft="7dp"                    android:inputType="number"
                    />
 
@@ -182,7 +182,7 @@ android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:textSize="18sp"
-                android:background="@drawable/white_border"
+
                 android:paddingLeft="7dp"
                 android:inputType="text"
                />

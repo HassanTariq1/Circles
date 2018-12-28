@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,9 +37,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Check_Out extends AppCompatActivity {
-    EditText fname,lastname,email,address,city,state,tele,country,fax;
+    EditText fname,lastname,email,address,city,state,tele,count;
     private String ufname,ulastname,uemail,ucompany,uaddress,ucity,ustate,uzip,utele,ucountry,ufax;
     private Button review,order;
     String cart_no=null;
@@ -46,42 +47,47 @@ public class Check_Out extends AppCompatActivity {
     private LinearLayout detail,place;
     String code1,sutotal,shipping,total,mobile;
     private ProgressDialog loading;
-    ImageView whatsapp;
+//    ImageView whatsapp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //Remove notification bar
-       // this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.out);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_check__out);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        whatsapp=(ImageView) findViewById(R.id.whatsapp);
+//        whatsapp=(ImageView) findViewById(R.id.whatsapp);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent i = new Intent(Check_Out.this, My_Cart.class);
-            startActivity(i);
-                finish();
+                Check_Out.super.onBackPressed();
             }
         });
 
 
 
-        ImageView whatsapp=(ImageView)findViewById(R.id.whatsapp);
-
-//        ImageView bag=(ImageView)findViewById(R.id.bag);
-//        bag.setOnClickListener(new View.OnClickListener() {
+//        ImageView whatsapp=(ImageView)findViewById(R.id.whatsapp);
+//        whatsapp.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent=new Intent(Check_Out.this,My_Cart.class);
+//                Uri uri  = Uri.parse("smsto:"+"+923161433343");
+//                Intent intent =new Intent(Intent.ACTION_SENDTO,uri);
+//                intent.setPackage("com.whatsapp");
 //                startActivity(intent);
-//                finish();
 //            }
 //        });
+        ImageView bag=(ImageView)findViewById(R.id.bag);
+        bag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Check_Out.this,My_Cart.class);
+                startActivity(intent);
+            }
+        });
         detail=(LinearLayout)findViewById(R.id.detail);
         place=(LinearLayout)findViewById(R.id.place);
         fname=(EditText)findViewById(R.id.cfname);
@@ -93,40 +99,39 @@ public class Check_Out extends AppCompatActivity {
         state=(EditText)findViewById(R.id.stat);
 //        zip=(EditText)findViewById(R.id.zip);
         tele=(EditText)findViewById(R.id.tele);
-        country=(EditText)findViewById(R.id.country);
-        fax=(EditText)findViewById(R.id.fax);
+count=(EditText)findViewById(R.id.couuu);
+//        fax=(EditText)findViewById(R.id.fax);
         order=(Button)findViewById(R.id.order);
         price1=(TextView)findViewById(R.id.total_price1);
         ship1=(TextView)findViewById(R.id.shipping);
         grand1=(TextView)findViewById(R.id.Grand_Total);
         code2=(TextView)findViewById(R.id.code);
         done=(Button)findViewById(R.id.done);
-        country.setEnabled(false);
+        count.setEnabled(false);
         mobile="(Mobile)";
         detail.setVisibility(View.GONE);
-//        done.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                SharedPreferences settings = Check_Out.this.getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
+                settings.edit().clear().commit();
+                //Getting out sharedpreferences
+//                SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_CART_NO, Context.MODE_PRIVATE);
+//                //Getting editor
+//                SharedPreferences.Editor editor = preferences.edit();
 //
-//
-//                SharedPreferences settings = Check_Out.this.getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
-//                settings.edit().clear().commit();
-//                //Getting out sharedpreferences
-////                SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_CART_NO, Context.MODE_PRIVATE);
-////                //Getting editor
-////                SharedPreferences.Editor editor = preferences.edit();
-////
-////                //Putting blank value to email
-////                editor.putString(Config.SHARED_PREF_CART_NO, null);
-////                editor.clear();
-////                editor.apply();
-//
-//                Toast.makeText(getApplicationContext(), "Your Order has been Placed Thank you!",Toast.LENGTH_LONG).show();
-//                Intent intent =new Intent(Check_Out.this,MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+//                //Putting blank value to email
+//                editor.putString(Config.SHARED_PREF_CART_NO, null);
+//                editor.clear();
+//                editor.apply();
+
+                Toast.makeText(getApplicationContext(), "Your Order has been Placed Thank you!",Toast.LENGTH_LONG).show();
+                Intent intent =new Intent(Check_Out.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
         SharedPreferences sharedPreferences = getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
         cart_no=sharedPreferences.getString(Config.SHARED_PREF_CART_NO,null);
         order.setOnClickListener(new View.OnClickListener() {
@@ -169,14 +174,14 @@ public class Check_Out extends AppCompatActivity {
                     tele.requestFocus();
                     tele.setError(Html.fromHtml("<font color='red'>Please Enter A Phone</font>"));
                 }
-                else if (country.getText().length()==0) {
-                    country.requestFocus();
-                    country.setError(Html.fromHtml("<font color='red'>Please Enter A Country</font>"));
+                else if (count.getText().length()==0) {
+                    count.requestFocus();
+                    count.setError(Html.fromHtml("<font color='red'>Please Enter A Country</font>"));
                 }
-                else if (fax.getText().length()==0) {
-                    fax.requestFocus();
-                    fax.setError(Html.fromHtml("<font color='red'>Please Enter A Password</font>"));
-                }
+//                else if (fax.getText().length()==0) {
+//                    fax.requestFocus();
+//                    fax.setError(Html.fromHtml("<font color='red'>Please Enter A Country</font>"));
+//                }
                 else if (v == order) {
                     //RegisterOrder();
                     ufname=mobile+fname.getText().toString();
@@ -189,7 +194,7 @@ public class Check_Out extends AppCompatActivity {
                     uzip="Mobile";
                     utele=tele.getText().toString();
                     ucountry="PK";
-                    ufax=fax.getText().toString();
+//                    ufax=fax.getText().toString();
                     placeorder();
                 }
             }
@@ -211,7 +216,6 @@ public class Check_Out extends AppCompatActivity {
 
         alertDialogBuilder.setMessage("Are you sure?");
         alertDialogBuilder.setPositiveButton("Yes",
-
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -230,7 +234,7 @@ public class Check_Out extends AppCompatActivity {
 
         //Showing the alert dialog
         AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color. LTGRAY ));
         alertDialog.show();
 
     }
@@ -273,21 +277,20 @@ public class Check_Out extends AppCompatActivity {
                     done.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            SharedPreferences settings = Check_Out.this.getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
+                            settings.edit().clear().commit();
                            //Getting out sharedpreferences
-                           SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_CART_NO, Context.MODE_PRIVATE);
-                           //Getting editor
-                           SharedPreferences.Editor editor = preferences.edit();
-
-////                            //Putting blank value to email
-                           editor.putString(Config.SHARED_PREF_CART_NO, null);
-                           editor.clear();
-                           editor.apply();
-                           SharedPreferences settings = Check_Out.this.getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
-                            Toast.makeText(getApplicationContext(), "Your order has been placed\nThank You ", Toast.LENGTH_LONG).show();
-                           Intent intent =new Intent(Check_Out.this,MainActivity.class);
+//                           SharedPreferences preferences = getSharedPreferences(Config.SHARED_PREF_CART_NO, Context.MODE_PRIVATE);
+//                           //Getting editor
+//                           SharedPreferences.Editor editor = preferences.edit();
+//
+//////                            //Putting blank value to email
+//                           editor.putString(Config.SHARED_PREF_CART_NO, null);
+//                           editor.clear();
+//                           editor.apply();
+//                           SharedPreferences settings = Check_Out.this.getSharedPreferences(Config.SHARED_PREF_CART, Context.MODE_PRIVATE);
+                           Intent intent =new Intent(Check_Out.this,Nothing.class);
                            startActivity(intent);
-                            finish();
                         }
                     });
 
@@ -351,7 +354,6 @@ public class Check_Out extends AppCompatActivity {
 //                editor.apply();
         Intent intent =new Intent(Check_Out.this,My_Cart.class);
         startActivity(intent);
-        finish();
 
     }
 }

@@ -21,10 +21,17 @@
 
             >
             <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:src="@drawable/logo"
+                android:layout_gravity="left"
+                />
+            <ImageView
                 android:layout_width="40dp"
                 android:layout_gravity="right"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:src="@drawable/shop"
+                android:id="@+id/bag"
                 android:layout_marginRight="10dp"
                 />
 

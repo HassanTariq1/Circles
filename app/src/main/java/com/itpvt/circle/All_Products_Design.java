@@ -1,21 +1,21 @@
 package com.itpvt.circle;
 
 import android.app.ProgressDialog;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -24,10 +24,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Glide;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +37,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import okio.HashingSource;
 
 public class All_Products_Design extends AppCompatActivity implements BaseSliderView.OnSliderClickListener {
     ArrayList<Products_pojo> arrayList = new ArrayList<>();
@@ -63,49 +67,11 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
         //Remove notification bar
 //        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        setContentView(R.layout.activity_all__products__design);
-     //   TextView textView = (TextView) findViewById(R.id.textView4);
+        TextView textView = (TextView) findViewById(R.id.textView4);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       //  whatsapp = (ImageView) findViewById(R.id.whatsapp);
 //
-//        ImageView bag= (ImageView) findViewById(R.id.bag);
-//        bag.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
 
-//                Intent i= new Intent(All_Products_Design.this, My_Cart.class);
-//                startActivity(i);
-//
-//            }
-//        });
-        FloatingActionButton face= (FloatingActionButton) findViewById(R.id.face);
-        face.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent facebookIntent = openFacebook(All_Products_Design.this);
-                startActivity(facebookIntent);
-
-                //    fb://page/100004757891858
-
-            }
-        });
-        FloatingActionButton whats = (FloatingActionButton) findViewById(R.id.whatsapp);
-        whats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Uri uri  =Uri.parse("smsto:"+"+923161433343");
-//                Intent intent =new Intent(Intent.ACTION_SENDTO,uri);
-//                intent.setPackage("com.whatsapp");
-//                startActivity(intent);
-
-                String smsNumber = "923174295010";
-
-                Intent sendIntent = new Intent("android.intent.action.MAIN");
-                sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-                sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix
-                startActivity(sendIntent);
-            }
-        });
 
 //       Button facebook=(Button)findViewById(R.id.facebook);
 //
@@ -193,7 +159,6 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
             public void onClick(View view) {
                 Intent intent = new Intent(All_Products_Design.this, MainActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
         recyclerView = (RecyclerView) findViewById(R.id.model_recyclerView);
@@ -212,18 +177,18 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
 //        });
 
 
-//        ImageView bag = (ImageView) findViewById(R.id.bag);
-//        bag.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(All_Products_Design.this, My_Cart.class);
-////
-////
+        ImageView bag = (ImageView) findViewById(R.id.bag);
+        bag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(All_Products_Design.this, My_Cart.class);
 //
 //
-//                startActivity(intent);
-//            }
-//        });
+
+
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
@@ -245,7 +210,7 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
     {
 
         HashMapForURL = new HashMap<String, Integer>();
-
+//
 //        HashMapForURL.put(" ", R.drawable.ban);
 //        HashMapForURL.put("  ", R.drawable.bann);
 //        HashMapForURL.put("   ", R.drawable.bannn);
@@ -316,8 +281,9 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
 
                     loading.dismiss();
 
-                    Intent i= new Intent(All_Products_Design.this,Avail.class);
+                    Intent i= new Intent(All_Products_Design.this,Nothing.class);
                     startActivity(i);
+                    Toast.makeText(All_Products_Design.this, "Nothing is Available For Time Being", Toast.LENGTH_LONG).show();
                     finish();
 //                    onBackPressed();
                 }
@@ -356,21 +322,6 @@ public class All_Products_Design extends AppCompatActivity implements BaseSlider
     public void onBackPressed() {
         Intent intent = new Intent(All_Products_Design.this, MainActivity.class);
         startActivity(intent);
-        finish();
-    }
-    public static Intent openFacebook(Context c) {
-        try {
-            c.getPackageManager()
-                    .getPackageInfo("com.facebook.katana", 0);
-            return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("fb://page/100004757891858"));
-        } catch (Exception e){
-
-            return new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.facebook.com/rdtex2016/"));
-        }
-
-
     }
 
 

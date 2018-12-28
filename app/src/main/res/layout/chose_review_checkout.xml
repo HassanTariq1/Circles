@@ -15,7 +15,7 @@ android:weightSum="2"
         android:text="Shop More"
         android:id="@+id/shop"
         android:layout_marginTop="5dp"
-        android:background="@drawable/btnborder"
+        android:background="@drawable/btnclr"
 
 
         android:layout_marginLeft="20dp"
@@ -33,7 +33,7 @@ android:weightSum="2"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/btnborder"
+        android:background="@drawable/btnclr"
 
 
         android:layout_marginTop="5dp"
